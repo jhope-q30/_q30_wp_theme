@@ -1,0 +1,9 @@
+{
+    "editor.wordWrap": "on",
+    "files.watcherExclude": {
+        "**/resources/*/**": true,
+        "**/.git/*/**": true,
+        "**/node_modules/*/**": true,
+        "**/vendor/*/**": true
+    }
+}

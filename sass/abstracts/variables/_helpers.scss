@@ -1,0 +1,38 @@
+/// padding
+$padding: ();
+$padding: map-merge(
+    (
+        "no":  0,
+        "xxs": 4px,
+        "xs":  8px,
+        "sm":  16px,
+        "md":  24px,
+        "lg":  32px,
+        "xl":  64px,
+        "xxl": 72px,
+    ),
+    $padding
+);
+
+/// padding helpers
+$listProperty: margin padding;
+
+@each $property in $listProperty {
+    @each $key, $value in $padding {
+        .#{$property}-#{$key} {
+            #{$property}: $value;
+            &-t {
+                #{$property}-top: $value;
+            }
+            &-r {
+                #{$property}-right: $value;
+            }
+            &-b {
+                #{$property}-bottom: $value;
+            }
+            &-l {
+                #{$property}-left: $value;
+            }
+        }
+    }
+}

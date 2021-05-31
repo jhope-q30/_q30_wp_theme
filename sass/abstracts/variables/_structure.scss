@@ -1,0 +1,16 @@
+// breakpoints
+$breakpoints: ();
+$breakpoints: map-merge(
+    (
+        "xs":  0,
+        "sm":  576px,
+        "md":  768px,
+        "lg":  992px,
+        "xl":  1200px,
+        "xxl": 1400px
+    ),
+    $breakpoints
+);
+
+$size__site-main: 100%;
+$size__site-sidebar: 25%;
