@@ -6,6 +6,8 @@
  */
 ( function() {
 
+	console.log( "navigation loaded" );
+
 	const siteNavigation = document.getElementById( 'site-navigation' );
 
 	// Return early if the navigation don't exist.
@@ -45,7 +47,6 @@
 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
 	document.addEventListener( 'click', function( event ) {
 		const isClickInside = siteNavigation.contains( event.target );
-
 		if ( ! isClickInside ) {
 			siteNavigation.classList.remove( 'toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
@@ -72,8 +73,8 @@
 	/**
 	 * Sets or removes .focus class on an element.
 	 */
-	function toggleFocus(e) {
-		if ( e.type === 'focus' || e.type === 'blur' ) {
+	function toggleFocus( event ) {
+		if ( event.type === 'focus' || event.type === 'blur' ) {
 			let self = this;
 			// Move up through the ancestors of the current link until we hit .nav-menu.
 			while ( ! self.classList.contains( 'nav-menu' ) ) {
@@ -85,9 +86,9 @@
 			}
 		}
 
-		if ( e.type === 'touchstart' ) {
+		if ( event.type === 'touchstart' ) {
 			const menuItem = this.parentNode;
-			e.preventDefault();
+			event.preventDefault();
 			for ( const link of menuItem.parentNode.children ) {
 				if ( menuItem !== link ) {
 					link.classList.remove( 'focus' );

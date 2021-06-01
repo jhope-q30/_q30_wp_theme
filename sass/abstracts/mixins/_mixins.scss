@@ -26,6 +26,13 @@
 	margin-right: auto;
 }
 
+// dropshadow
+@mixin dropshadow( $operator: '' ) {
+	-webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3) #{$operator};
+	-moz-box-shadow:    0 4px 5px 0 rgba(0, 0, 0, 0.3) #{$operator};
+	box-shadow:         0 4px 5px 0 rgba(0, 0, 0, 0.3) #{$operator};
+}
+
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );

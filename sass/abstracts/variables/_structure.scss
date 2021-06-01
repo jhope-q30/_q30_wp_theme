@@ -12,5 +12,20 @@ $breakpoints: map-merge(
     $breakpoints
 );
 
+// containers
+$containers: ();
+$containers: map-merge(
+    (
+        "xxs": 140px,
+        "xs":  260px,
+        "sm":  540px,
+        "md":  720px,
+        "lg":  960px,
+        "xl":  1140px,
+        "xxl": 1320px
+    ),
+    $containers
+);
+
 $size__site-main: 100%;
 $size__site-sidebar: 25%;

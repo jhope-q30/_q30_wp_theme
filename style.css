@@ -963,14 +963,27 @@ textarea {
 .main-navigation {
 	display: block;
 	width: 100%;
+
+	/*a {
+		display: block;
+		text-decoration: none;
+	}
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
+	}*/
 }
 
 .main-navigation a {
-	padding: 8px 16px;
+	margin: 0;
+	padding: 8px 16px 12px 16px;
 	color: #000;
 	text-decoration: none;
 	display: block;
 	background-color: #fff;
+	line-height: 16px;
 	-webkit-transition: background-color 0.222s ease-out;
 	-moz-transition: background-color 0.222s ease-out;
 	-ms-transition: background-color 0.222s ease-out;
@@ -986,70 +999,39 @@ textarea {
 	color: #fff;
 }
 
-.main-navigation > div > ul {
+.main-navigation > div {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	max-width: 1140px;
+}
+
+.main-navigation .menu-toggle {
+	cursor: pointer;
+}
+
+.main-navigation ul {
+	display: none;
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	font-size: 1em;
-	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	background-color: #fff;
 }
 
-.main-navigation > div > ul > li {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	font-size: 1em;
-}
+.main-navigation ul ul {
+	position: absolute;
+	float: left;
+	top: 100%;
+	left: -999em;
+	z-index: 99999;
+	-webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
 
-.main-navigation > div > ul > li > ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	font-size: 1em;
-	display: block;
-}
-
-@media screen and (min-width: 992px) {
-
-	.main-navigation .menu-toggle {
-		display: none;
-	}
-}
-
-/*ul { //// top level
-
-		display: none;
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
-
-		ul {
-
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
-
-			ul {
-				left: -999em;
-				top: 0;
-			}
-
-			li {
-
-				&:hover > ul,
-				&.focus > ul {
-					display: block;
-					left: auto;
-				}
-			}
-
-			a {
+	/*a {
 				width: 200px;
 			}
 
@@ -1059,75 +1041,86 @@ textarea {
 
 			a:hover,
 			a.focus {
-			}
-		}
-
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
-		}
-	}
-
-	li {
-		position: relative;
-
-		&:hover > a,
-		&.focus > a {
-		}
-	}
-
-	a {
-		display: block;
-		text-decoration: none;
-	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
-	}
+			}*/
 }
 
-//// Small menu.
+.main-navigation ul ul ul {
+	left: -999em;
+	top: 0;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+	display: block;
+	left: auto;
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+	left: auto;
+	display: block;
+}
+
+.main-navigation li {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 1em;
+
+	/*&:hover > a,
+		&.focus > a {
+		}*/
+}
+
+/* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 992px) {
 
 	.menu-toggle {
 		display: none;
 	}
 
-	.main-navigation ul {
+	.main-navigation > div > ul {
 		display: flex;
+		justify-content: space-between;
+	}
+
+	.main-navigation > div > ul > li > a {
+		background-color: #f00;
 	}
 }
 
-.comment-navigation,
+.site-main .comment-navigation,
+.site-main
 .posts-navigation,
+.site-main
 .post-navigation {
-
-	.site-main & {
-		margin: 0 0 1.5em;
-	}
-
-	.nav-links {
-		display: flex;
-	}
-
-	.nav-previous {
-		flex: 1 0 50%;
-	}
-
-	.nav-next {
-		text-align: end;
-		flex: 1 0 50%;
-	}
+	margin: 0 0 1.5em;
 }
 
-*/
+.comment-navigation .nav-links,
+.posts-navigation .nav-links,
+.post-navigation .nav-links {
+	display: flex;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	flex: 1 0 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	text-align: end;
+	flex: 1 0 50%;
+}
 
 /* Posts and pages
 --------------------------------------------- */
